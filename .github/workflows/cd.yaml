@@ -20,6 +20,9 @@ jobs:
         working-directory: ./nodeApp
     runs-on: ubuntu-latest
     steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@v2
+        
       - name: "Deploy"
         run: ls -lrt
   
