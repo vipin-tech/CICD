@@ -1,0 +1,69 @@
+name: Continuous Integration Workflow
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "main"
+    paths:
+      - 'myApp/**'
+  pull_request:
+    branches:
+      - "main"
+    paths:
+      - 'myApp/**'
+
+jobs:
+  test:
+    name: "Run Automation Tests"
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./myApp
+    # Specify the OS we want the workflow to run on
+    runs-on: ubuntu-latest
+    # Define the steps for this job
+
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v2
+      
+      - name: 'Install Dependencies'
+        run: npm install 
+      
+      - name: 'Run Unit Tests'
+        run: echo "Running Unit Tests"
+      
+      - name: 'Run Integration Tests'
+        run : echo "Running Integration Tests"
+  
+  lint:
+    name: "Run Linter"
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./myApp
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@v2
+
+      - name: 'Format the code'
+        run: echo "Formatting the code in Repository"
+
+  security:
+    name: "Run Security Scan"
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./myApp
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@v2
+      
+      - name: 'Run Security Scans'
+        run: echo "Running Security Scans"
+      
