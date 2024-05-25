@@ -6,12 +6,12 @@ on:
     branches:
       - "main"
     paths:
-      - "myApp/**"
+      - "cicd/**"
   pull_request:
     branches:
       - "main"
     paths:
-      - "myApp/**"
+      - "cicd/**"
 
 jobs:
   test:
@@ -19,8 +19,11 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: myApp/
+        # Define the working directory for all run steps in the workflow
+        working-directory: ./cicd
+    # Specify the OS we want the workflow to run on
     runs-on: ubuntu-latest
+    # Define the steps for this job
 
     steps:
       - name: 'Checkout Repository'
@@ -40,7 +43,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: myApp/
+        working-directory: ./cicd
     runs-on: ubuntu-latest
 
     steps:
@@ -55,7 +58,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: myApp/
+        working-directory: ./cicd
     runs-on: ubuntu-latest
 
     steps:
