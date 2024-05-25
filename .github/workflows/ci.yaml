@@ -5,13 +5,9 @@ on:
   push:
     branches:
       - "main"
-    paths:
-      - "cicd/**"
   pull_request:
     branches:
       - "main"
-    paths:
-      - "cicd/**"
 
 jobs:
   test:
@@ -19,8 +15,6 @@ jobs:
     defaults:
       run:
         shell: bash
-        # Define the working directory for all run steps in the workflow
-        working-directory: ./cicd
     # Specify the OS we want the workflow to run on
     runs-on: ubuntu-latest
     # Define the steps for this job
@@ -43,7 +37,6 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./cicd
     runs-on: ubuntu-latest
 
     steps:
@@ -58,7 +51,6 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./cicd
     runs-on: ubuntu-latest
 
     steps:
