@@ -19,7 +19,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./myApp
+        working-directory: myApp/
     runs-on: ubuntu-latest
 
     steps:
@@ -40,7 +40,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./myApp
+        working-directory: myApp/
     runs-on: ubuntu-latest
 
     steps:
@@ -55,7 +55,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./myApp
+        working-directory: myApp/
     runs-on: ubuntu-latest
 
     steps:
