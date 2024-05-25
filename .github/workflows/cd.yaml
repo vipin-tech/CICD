@@ -1,0 +1,26 @@
+name: Continuous Deployment Workflow 
+
+on:
+  push:
+    branches: 
+      - "main"
+
+  pull_request:
+    branches:
+      - "main"
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: "Deploy the Application"
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./nodeApp
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Deploy"
+        run: ls -lrt
+  
+    
